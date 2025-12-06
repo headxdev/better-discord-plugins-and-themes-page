@@ -15,12 +15,23 @@
         style.textContent = css;
         document.head.appendChild(style);
       });
+    
     // HTML Content laden und einfügen
     fetch('https://raw.githubusercontent.com/headxdev/better-discord-plugins-and-themes/refs/heads/main/website/index.html')
       .then(response => response.text())
       .then(html => {
         document.getElementById('remote-content').innerHTML = html;
-      });
+        
+        // Nach dem Laden des HTML-Contents das JavaScript laden
+        return fetch('https://raw.githubusercontent.com/headxdev/better-discord-plugins-and-themes/refs/heads/main/website/script.js');
+      })
+      .then(response => response.text())
+      .then(js => {
+        const script = document.createElement('script');
+        script.textContent = js;
+        document.body.appendChild(script);
+      })
+      .catch(error => console.error('Fehler beim Laden:', error));
   </script>
 </head>
 <body>
@@ -37,10 +48,11 @@
     <ul>
       <li><a href="https://raw.githubusercontent.com/headxdev/better-discord-plugins-and-themes/refs/heads/main/website/style.css">Raw CSS</a></li>
       <li><a href="https://raw.githubusercontent.com/headxdev/better-discord-plugins-and-themes/refs/heads/main/website/index.html">Raw HTML</a></li>
+      <li><a href="https://raw.githubusercontent.com/headxdev/better-discord-plugins-and-themes/refs/heads/main/website/script.js">Raw JS</a></li>
       <li><a href="https://github.dev/headxdev/better-discord-plugins-and-themes/blob/main/website/index.html">GitHub Editor</a></li>
       <li><a href="https://headxdev.github.io/better-discord-plugins-and-themes/website/">Live Demo ⬈</a></li>
     </ul>
-    <small>Diese Seite lädt ihren Inhalt live von <code>main/website/index.html</code> und <code>main/website/style.css</code></small>
+    <small>Diese Seite lädt ihren Inhalt live von <code>main/website/index.html</code>, <code>main/website/style.css</code> und <code>main/website/script.js</code></small>
   </footer>
 </body>
 </html>
