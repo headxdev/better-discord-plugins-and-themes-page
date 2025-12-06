@@ -1,0 +1,2188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HeadX - BetterDiscord Themes & Plugins</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+/* ========================================
+   HeadX BetterDiscord Website Styles
+   Galaxy Theme Showcase
+   ======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-primary: #0a0c19;
+    --bg-secondary: #0f1223;
+    --bg-tertiary: #151a2e;
+    --bg-card: rgba(15, 18, 35, 0.6);
+    --bg-card-hover: rgba(20, 25, 45, 0.8);
+    
+    --text-primary: #f0f1f3;
+    --text-secondary: #a0a5b0;
+    --text-muted: #6c7380;
+    
+    --accent-primary: #8b5cf6;
+    --accent-secondary: #6366f1;
+    --accent-cyan: #22d3ee;
+    --accent-pink: #ec4899;
+    
+    --gradient-primary: linear-gradient(135deg, #8b5cf6, #6366f1, #22d3ee);
+    --gradient-card: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(99, 102, 241, 0.05));
+    
+    --border-color: rgba(255, 255, 255, 0.1);
+    --border-radius: 16px;
+    --border-radius-sm: 8px;
+    --border-radius-lg: 24px;
+    
+    --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.5);
+    --shadow-glow: 0 0 30px rgba(139, 92, 246, 0.3);
+    
+    --transition: 0.3s ease;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Galaxy Background */
+#galaxy-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Navigation */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background: rgba(10, 12, 25, 0.8);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.logo {
+    font-size: 1.75rem;
+}
+
+.brand-text {
+    font-size: 1.25rem;
+    font-weight: 700;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+    position: relative;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--text-primary);
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--gradient-primary);
+    border-radius: 2px;
+}
+
+.github-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.github-btn:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--accent-primary);
+    box-shadow: var(--shadow-glow);
+}
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    padding: 8rem 4rem 4rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+
+.gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    max-width: 500px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.75rem;
+    border-radius: var(--border-radius-sm);
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+    cursor: pointer;
+    border: none;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background: var(--gradient-primary);
+    color: white;
+    box-shadow: var(--shadow-glow);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 40px rgba(139, 92, 246, 0.5);
+}
+
+.btn-secondary {
+    background: var(--bg-card);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--accent-primary);
+}
+
+.btn-ghost {
+    background: transparent;
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+}
+
+.btn-ghost:hover {
+    color: var(--text-primary);
+    border-color: var(--text-secondary);
+}
+
+.btn-small {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+}
+
+/* Hero Stats */
+.hero-stats {
+    display: flex;
+    gap: 3rem;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 800;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.stat-label {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+}
+
+/* Preview Window */
+.hero-preview {
+    perspective: 1000px;
+}
+
+.preview-window {
+    background: var(--bg-card);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg), var(--shadow-glow);
+    transform: rotateY(-5deg) rotateX(5deg);
+    transition: var(--transition);
+}
+
+.preview-window:hover {
+    transform: rotateY(0) rotateX(0);
+}
+
+.window-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.window-dots {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.dot.red { background: #ff5f57; }
+.dot.yellow { background: #febc2e; }
+.dot.green { background: #28c840; }
+
+.window-title {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+}
+
+.window-content {
+    padding: 1rem;
+    min-height: 300px;
+}
+
+.discord-mock {
+    display: grid;
+    grid-template-columns: 60px 200px 1fr 200px;
+    gap: 0.5rem;
+    height: 250px;
+}
+
+.mock-servers {
+    background: rgba(139, 92, 246, 0.1);
+    border-radius: var(--border-radius-sm);
+}
+
+.mock-channels {
+    background: rgba(99, 102, 241, 0.1);
+    border-radius: var(--border-radius-sm);
+}
+
+.mock-chat {
+    background: rgba(34, 211, 238, 0.05);
+    border-radius: var(--border-radius-sm);
+}
+
+.mock-members {
+    background: rgba(236, 72, 153, 0.1);
+    border-radius: var(--border-radius-sm);
+}
+
+/* Sections */
+.section {
+    padding: 6rem 4rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+.section-subtitle {
+    color: var(--text-secondary);
+    font-size: 1.125rem;
+}
+
+.subsection-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 3rem 0 1.5rem;
+    color: var(--text-secondary);
+}
+
+/* Theme Showcase */
+.theme-showcase {
+    margin-bottom: 3rem;
+}
+
+.theme-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    background: var(--bg-card);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.theme-card:hover {
+    border-color: var(--accent-primary);
+    box-shadow: var(--shadow-glow);
+}
+
+.theme-card.featured {
+    background: var(--gradient-card);
+}
+
+.theme-preview {
+    min-height: 400px;
+    position: relative;
+    overflow: hidden;
+}
+
+.galaxy-preview {
+    background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+    animation: galaxyShift 10s ease infinite;
+}
+
+@keyframes galaxyShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+.theme-overlay {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+}
+
+.featured-badge {
+    background: var(--gradient-primary);
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius-sm);
+    font-weight: 600;
+    font-size: 0.875rem;
+}
+
+.theme-info {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.theme-name {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.theme-description {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.theme-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.feature {
+    background: rgba(139, 92, 246, 0.15);
+    padding: 0.375rem 0.75rem;
+    border-radius: var(--border-radius-sm);
+    font-size: 0.8rem;
+    color: var(--accent-primary);
+}
+
+.theme-meta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-muted);
+    font-size: 0.875rem;
+}
+
+.theme-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Mini Theme Cards */
+.themes-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+.mini-theme-card {
+    background: var(--bg-card);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    padding: 1rem;
+    text-align: center;
+    transition: var(--transition);
+}
+
+.mini-theme-card:hover {
+    border-color: var(--accent-primary);
+    transform: translateY(-4px);
+}
+
+.mini-preview {
+    height: 100px;
+    border-radius: var(--border-radius-sm);
+    margin-bottom: 1rem;
+}
+
+.midnight-preview {
+    background: linear-gradient(135deg, #1e1e2e, #313244);
+}
+
+.moonrabbit-preview {
+    background: linear-gradient(135deg, #e297b2, #c0b4d5, #54b5de);
+}
+
+.vsthemes-preview {
+    background: linear-gradient(135deg, #0a0a0a, #1a0a0a);
+}
+
+.glass-preview {
+    background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+    backdrop-filter: blur(10px);
+}
+
+.mini-theme-card h4 {
+    margin-bottom: 0.5rem;
+}
+
+.mini-theme-card p {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+.mini-badge {
+    display: inline-block;
+    margin-top: 0.75rem;
+    padding: 0.25rem 0.75rem;
+    background: var(--gradient-primary);
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+.preview-stars,
+.preview-moon,
+.preview-ghost,
+.preview-blur {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+}
+
+.preview-stars {
+    background: radial-gradient(white 1px, transparent 1px);
+    background-size: 20px 20px;
+    animation: twinkle 2s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+.preview-moon {
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.preview-ghost {
+    animation: ghostFloat 2s ease-in-out infinite;
+}
+
+@keyframes ghostFloat {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-5px) scale(1.1); }
+}
+
+.preview-blur {
+    backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* CSS Preview Section */
+.css-preview-section {
+    margin-top: 3rem;
+}
+
+.code-preview {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.code-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.code-lang {
+    font-size: 0.875rem;
+    color: var(--accent-primary);
+    font-weight: 600;
+}
+
+.copy-btn {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    padding: 0.375rem 0.75rem;
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: var(--transition);
+}
+
+.copy-btn:hover {
+    background: var(--accent-primary);
+    color: white;
+    border-color: var(--accent-primary);
+}
+
+.code-block {
+    padding: 1.5rem;
+    margin: 0;
+    overflow-x: auto;
+    background: var(--bg-primary);
+}
+
+.code-block code {
+    font-family: 'Fira Code', 'Consolas', monospace;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* Plugin Categories */
+.plugin-categories {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.category-btn {
+    padding: 0.5rem 1.5rem;
+    border-radius: var(--border-radius-sm);
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.category-btn:hover,
+.category-btn.active {
+    background: var(--accent-primary);
+    border-color: var(--accent-primary);
+    color: white;
+}
+
+/* Plugins Grid */
+.plugins-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+.plugin-card {
+    background: var(--bg-card);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    padding: 1.5rem;
+    transition: var(--transition);
+    position: relative;
+}
+
+.plugin-card:hover {
+    border-color: var(--accent-primary);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-glow);
+}
+
+.plugin-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.plugin-card h4 {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.plugin-card p {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+}
+
+.plugin-version {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(139, 92, 246, 0.2);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    color: var(--accent-primary);
+}
+
+/* Installation Steps */
+.install-steps {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+}
+
+.step {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: var(--bg-card);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    transition: var(--transition);
+}
+
+.step:hover {
+    border-color: var(--accent-primary);
+}
+
+.step-number {
+    width: 48px;
+    height: 48px;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+}
+
+.step-content h4 {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.step-content p {
+    color: var(--text-secondary);
+}
+
+.step-content code {
+    background: rgba(139, 92, 246, 0.2);
+    padding: 0.125rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    color: var(--accent-primary);
+}
+
+.step-content a {
+    color: var(--accent-cyan);
+}
+
+/* Quick Links */
+.quick-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.quick-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.quick-link:hover {
+    border-color: var(--accent-primary);
+    box-shadow: var(--shadow-glow);
+    transform: translateY(-2px);
+}
+
+/* Footer */
+.footer {
+    padding: 3rem 4rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-top: 1px solid var(--border-color);
+}
+
+.footer-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footer-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.footer-text {
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.footer-text a {
+    color: var(--accent-cyan);
+    text-decoration: none;
+}
+
+.footer-copyright {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background: var(--bg-secondary);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--border-color);
+    max-width: 800px;
+    width: 90%;
+    max-height: 80vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.modal-close:hover {
+    color: var(--text-primary);
+}
+
+.modal-body {
+    padding: 1.5rem;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+.modal-body pre {
+    background: var(--bg-primary);
+    padding: 1rem;
+    border-radius: var(--border-radius-sm);
+    overflow-x: auto;
+}
+
+.modal-body code {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.modal-footer {
+    padding: 1.5rem;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 6rem 2rem 4rem;
+    }
+    
+    .hero-subtitle {
+        margin: 0 auto 2rem;
+    }
+    
+    .hero-buttons {
+        justify-content: center;
+    }
+    
+    .hero-stats {
+        justify-content: center;
+    }
+    
+    .hero-preview {
+        display: none;
+    }
+    
+    .theme-card {
+        grid-template-columns: 1fr;
+    }
+    
+    .themes-grid,
+    .plugins-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 1rem;
+    }
+    
+    .nav-links {
+        display: none;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .section {
+        padding: 4rem 1.5rem;
+    }
+    
+    .themes-grid,
+    .plugins-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .quick-links {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .plugin-categories {
+        gap: 0.5rem;
+    }
+    
+    .category-btn {
+        padding: 0.375rem 1rem;
+        font-size: 0.875rem;
+    }
+}
+
+    </style>
+</head>
+<body>
+
+    <!-- Galaxy Background Canvas -->
+    <canvas id="galaxy-bg"></canvas>
+    
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-brand">
+            <span class="logo">🌌</span>
+            <span class="brand-text">HeadX</span>
+        </div>
+        <div class="nav-links">
+            <a href="#home" class="nav-link active">Home</a>
+            <a href="#themes" class="nav-link">Themes</a>
+            <a href="#plugins" class="nav-link">Plugins</a>
+            <a href="#install" class="nav-link">Installation</a>
+        </div>
+        <a href="https://github.com/headxdev/better-discord-plugins-and-themes" target="_blank" class="github-btn">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+            </svg>
+            GitHub
+        </a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="gradient-text">Galaxy Theme</span>
+                <br>& Plugin Collection
+            </h1>
+            <p class="hero-subtitle">
+                Verwandle dein Discord in ein atemberaubendes Weltraum-Erlebnis mit animierten Galaxien, 
+                Glasmorphismus-Effekten und leistungsstarken Plugins.
+            </p>
+            <div class="hero-buttons">
+                <a href="#themes" class="btn btn-primary">
+                    <span>Themes entdecken</span>
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                        <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+                    </svg>
+                </a>
+                <a href="#plugins" class="btn btn-secondary">Plugins ansehen</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">1</span>
+                    <span class="stat-label">Premium Theme</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">25+</span>
+                    <span class="stat-label">Plugins</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">4</span>
+                    <span class="stat-label">Integrierte Themes</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-preview">
+            <div class="preview-window">
+                <div class="window-header">
+                    <div class="window-dots">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <span class="window-title">Discord - Galaxy Theme</span>
+                </div>
+                <div class="window-content">
+                    <div class="discord-mock">
+                        <div class="mock-servers"></div>
+                        <div class="mock-channels"></div>
+                        <div class="mock-chat"></div>
+                        <div class="mock-members"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Themes Section -->
+    <section id="themes" class="section">
+        <div class="section-header">
+            <h2 class="section-title">🎨 Themes</h2>
+            <p class="section-subtitle">Ein ultimatives Theme mit 4 integrierten Designs</p>
+        </div>
+        
+        <div class="theme-showcase">
+            <div class="theme-card featured">
+                <div class="theme-preview galaxy-preview">
+                    <div class="theme-overlay">
+                        <span class="featured-badge">⭐ Featured</span>
+                    </div>
+                </div>
+                <div class="theme-info">
+                    <h3 class="theme-name">Galaxy Theme Ultimate</h3>
+                    <p class="theme-description">
+                        Das ultimative Discord Theme mit animiertem Sternenhimmel, 
+                        Glasmorphismus-Effekten und 4 integrierten Themes: 
+                        Galaxy, Midnight, Moon Rabbits & VSThemes.
+                    </p>
+                    <div class="theme-features">
+                        <span class="feature">🌌 Animierte Galaxy</span>
+                        <span class="feature">✨ Glasmorphismus</span>
+                        <span class="feature">🌙 Midnight Integration</span>
+                        <span class="feature">🐰 Moon Rabbits</span>
+                        <span class="feature">👻 VSThemes System</span>
+                        <span class="feature">🔧 Plugin-Kompatibel</span>
+                    </div>
+                    <div class="theme-meta">
+                        <span class="version">v3.1.0</span>
+                        <span class="author">by HeadX</span>
+                    </div>
+                    <div class="theme-actions">
+                        <a href="https://raw.githubusercontent.com/headxdev/better-discord-plugins-and-themes/main/themes/galaxytheme.theme.css" class="btn btn-primary btn-small" download>
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                            </svg>
+                            Download
+                        </a>
+                        <button class="btn btn-ghost btn-small" onclick="showCode('galaxy-theme')">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                                <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/>
+                            </svg>
+                            Code
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Integrated Themes -->
+        <h3 class="subsection-title">Integrierte Theme-Systeme</h3>
+        <div class="themes-grid">
+            <div class="mini-theme-card" onclick="showThemeDetails('midnight')">
+                <div class="mini-preview midnight-preview">
+                    <div class="preview-stars"></div>
+                </div>
+                <h4>🌙 Midnight</h4>
+                <p>Custom Chatbar, Animationen, Window Controls, Smooth Scrolling</p>
+                <span class="mini-badge">Integriert</span>
+            </div>
+            <div class="mini-theme-card" onclick="showThemeDetails('moonrabbit')">
+                <div class="mini-preview moonrabbit-preview">
+                    <div class="preview-moon">🐰</div>
+                </div>
+                <h4>🐇 Moon Rabbits</h4>
+                <p>Window Mode, Pop-Effekte, Animierter BG, Kawaii Style</p>
+                <span class="mini-badge">Integriert</span>
+            </div>
+            <div class="mini-theme-card" onclick="showThemeDetails('vsthemes')">
+                <div class="mini-preview vsthemes-preview">
+                    <div class="preview-ghost">👻</div>
+                </div>
+                <h4>👻 VSThemes / True Ghoul</h4>
+                <p>Transparenz-System, Dynamische Hintergründe, Dark Aesthetic</p>
+                <span class="mini-badge">Integriert</span>
+            </div>
+            <div class="mini-theme-card" onclick="showThemeDetails('glass')">
+                <div class="mini-preview glass-preview">
+                    <div class="preview-blur"></div>
+                </div>
+                <h4>✨ Glasmorphismus</h4>
+                <p>Blur-Effekte, Transparente Panels, Frosted Glass Look</p>
+                <span class="mini-badge">Integriert</span>
+            </div>
+        </div>
+
+        <!-- CSS Code Preview -->
+        <div class="css-preview-section">
+            <h3 class="subsection-title">💻 CSS Variablen</h3>
+            <div class="code-preview">
+                <div class="code-header">
+                    <span class="code-lang">CSS</span>
+                    <button class="copy-btn" onclick="copyCSSVars()">📋 Kopieren</button>
+                </div>
+                <pre class="code-block"><code>:root {
+    /* 🌌 Galaxy Colors */
+    --galaxy-bg: #0a0c19;
+    --galaxy-accent: #8b5cf6;
+    --galaxy-secondary: #6366f1;
+    --galaxy-cyan: #22d3ee;
+    --galaxy-pink: #ec4899;
+    
+    /* 🔮 Transparency (0.0 - 1.0) */
+    --transparency: 0.30;
+    --blur-amount: 10px;
+    
+    /* ✨ Glassmorphism */
+    --glass-bg: rgba(10, 12, 25, var(--transparency));
+    --glass-border: rgba(255, 255, 255, 0.1);
+}</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plugins Section -->
+    <section id="plugins" class="section">
+        <div class="section-header">
+            <h2 class="section-title">🔌 Plugins</h2>
+            <p class="section-subtitle">Leistungsstarke Plugins für erweiterte Discord-Funktionen</p>
+        </div>
+
+        <!-- Plugin Categories -->
+        <div class="plugin-categories">
+            <button class="category-btn active" data-category="all">Alle</button>
+            <button class="category-btn" data-category="voice">Voice</button>
+            <button class="category-btn" data-category="utility">Utility</button>
+            <button class="category-btn" data-category="visual">Visual</button>
+            <button class="category-btn" data-category="library">Libraries</button>
+        </div>
+
+        <div class="plugins-grid">
+            <!-- Voice Plugins -->
+            <div class="plugin-card" data-category="voice">
+                <div class="plugin-icon">🎙️</div>
+                <h4>CallTimeCounter</h4>
+                <p>Zeigt an, wie lange du im Voice-Channel bist</p>
+                <span class="plugin-version">v2.0.0</span>
+            </div>
+            <div class="plugin-card" data-category="voice">
+                <div class="plugin-icon">⏱️</div>
+                <h4>AllCallTimeCounter</h4>
+                <p>Erweiterte Voice-Zeit-Statistiken</p>
+                <span class="plugin-version">v1.0.0</span>
+            </div>
+            <div class="plugin-card" data-category="voice">
+                <div class="plugin-icon">🔇</div>
+                <h4>DisableDMCallIdle</h4>
+                <p>Verhindert Auto-Kick nach 3 Min Inaktivität</p>
+                <span class="plugin-version">v3.0.0</span>
+            </div>
+            <div class="plugin-card" data-category="voice">
+                <div class="plugin-icon">🔊</div>
+                <h4>BetterVolume</h4>
+                <p>Erweiterte Lautstärke-Kontrolle (0-200%)</p>
+                <span class="plugin-version">v1.0.0</span>
+            </div>
+            <div class="plugin-card" data-category="voice">
+                <div class="plugin-icon">👥</div>
+                <h4>InMyVoice</h4>
+                <p>Zeigt wer in deinem Voice-Channel ist</p>
+                <span class="plugin-version">v1.0.0</span>
+            </div>
+            <div class="plugin-card" data-category="voice">
+                <div class="plugin-icon">👀</div>
+                <h4>ShowSpectators</h4>
+                <p>Zeigt Zuschauer in Voice-Channels</p>
+                <span class="plugin-version">v1.0.0</span>
+            </div>
+
+            <!-- Utility Plugins -->
+            <div class="plugin-card" data-category="utility">
+                <div class="plugin-icon">🔒</div>
+                <h4>PasscodeLock</h4>
+                <p>Schütze Discord mit einem Passcode</p>
+                <span class="plugin-version">v1.0.0</span>
+            </div>
+            <div class="plugin-card" data-category="utility">
+                <div class="plugin-icon">📝</div>
+                <h4>MessageLoggerV2</h4>
+                <p>Speichert gelöschte/bearbeitete Nachrichten</p>
+                <span class="plugin-version">v1.0.0</span>
+            </div>
+            <div class="plugin-card" data-category="utility">
+                <div class="plugin-icon">✏️</div>
+                <h4>DoubleClickToEdit</h4>
+                <p>Doppelklick zum Bearbeiten von Nachrichten</p>
+                <span class="plugin-version">v1.0.0</span>
+            </div>
+            <div class="plugin-card" data-category="utility">
+                <div class="plugin-icon">📋</div>
+                <h4>StickerSnatcher</h4>
+                <p>Speichere und kopiere Sticker einfach</p>
+                <span class="plugin-version">v3.0.0</span>
+            </div>
+            <div class="plugin-card" data-category="utility">
+                <div class="plugin-icon">✂️</div>
+                <h4>SplitLargeMessages</h4>
+                <p>Teilt lange Nachrichten automatisch</p>
+                <span class="plugin-version">v1.0.0</span>
+            </div>
+            <div class="plugin-card" data-category="utility">
+                <div class="plugin-icon">🎮</div>
+                <h4>GameActivityToggle</h4>
+                <p>Schnelles Ein/Ausschalten der Spielaktivität</p>
+                <span class="plugin-version">v1.0.0</span>
+            </div>
+            <div class="plugin-card" data-category="utility">
+                <div class="plugin-icon">😴</div>
+                <h4>AutoIdleOnAFK</h4>
+                <p>Automatisch auf Abwesend wechseln</p>
+                <span class="plugin-version">v1.0.0</span>
+            </div>
+            <div class="plugin-card" data-category="utility">
+                <div class="plugin-icon">🎭</div>
+                <h4>CustomStatusPresets</h4>
+                <p>Speichere Status-Vorlagen</p>
+                <span class="plugin-version">v1.0.0</span>
+            </div>
+
+            <!-- Visual Plugins -->
+            <div class="plugin-card" data-category="visual">
+                <div class="plugin-icon">🌌</div>
+                <h4>GalaxyPlugin</h4>
+                <p>Animierter Galaxy-Hintergrund</p>
+                <span class="plugin-version">v2.0.0</span>
+            </div>
+            <div class="plugin-card" data-category="visual">
+                <div class="plugin-icon">🔔</div>
+                <h4>PingNotification</h4>
+                <p>Verbesserte Ping-Benachrichtigungen</p>
+                <span class="plugin-version">v1.0.0</span>
+            </div>
+            <div class="plugin-card" data-category="visual">
+                <div class="plugin-icon">📊</div>
+                <h4>APlatformIndicators</h4>
+                <p>Zeigt Plattform-Icons (Desktop/Mobile)</p>
+                <span class="plugin-version">v1.0.0</span>
+            </div>
+            <div class="plugin-card" data-category="visual">
+                <div class="plugin-icon">🎨</div>
+                <h4>MoreRoleColors</h4>
+                <p>Mehr Farben für Rollen-Namen</p>
+                <span class="plugin-version">v1.0.0</span>
+            </div>
+            <div class="plugin-card" data-category="visual">
+                <div class="plugin-icon">📁</div>
+                <h4>BetterFolders</h4>
+                <p>Verbesserte Server-Ordner</p>
+                <span class="plugin-version">v1.0.0</span>
+            </div>
+            <div class="plugin-card" data-category="visual">
+                <div class="plugin-icon">🔢</div>
+                <h4>CharCounter</h4>
+                <p>Zeichen-Zähler für Nachrichten</p>
+                <span class="plugin-version">v1.0.0</span>
+            </div>
+            <div class="plugin-card" data-category="visual">
+                <div class="plugin-icon">👁️</div>
+                <h4>ShowHiddenChannels</h4>
+                <p>Zeigt versteckte Kanäle an</p>
+                <span class="plugin-version">v1.0.0</span>
+            </div>
+            <div class="plugin-card" data-category="visual">
+                <div class="plugin-icon">🔗</div>
+                <h4>ShowConnections</h4>
+                <p>Zeigt Verbindungen im Profil</p>
+                <span class="plugin-version">v1.0.0</span>
+            </div>
+
+            <!-- Library Plugins -->
+            <div class="plugin-card" data-category="library">
+                <div class="plugin-icon">📚</div>
+                <h4>0PluginLibrary</h4>
+                <p>ZeresPluginLibrary - Basis für viele Plugins</p>
+                <span class="plugin-version">v2.0.0</span>
+            </div>
+            <div class="plugin-card" data-category="library">
+                <div class="plugin-icon">🔧</div>
+                <h4>0BDFDB</h4>
+                <p>DevilBro's Library für erweiterte Plugins</p>
+                <span class="plugin-version">v1.0.0</span>
+            </div>
+            <div class="plugin-card" data-category="library">
+                <div class="plugin-icon">⚡</div>
+                <h4>1XenoLib</h4>
+                <p>XenoLib - Zusätzliche Utilities</p>
+                <span class="plugin-version">v1.0.0</span>
+            </div>
+            <div class="plugin-card" data-category="library">
+                <div class="plugin-icon">🛠️</div>
+                <h4>0PluginCompatHelper</h4>
+                <p>Verbessert Plugin-Kompatibilität</p>
+                <span class="plugin-version">v2.0.0</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Installation Section -->
+    <section id="install" class="section">
+        <div class="section-header">
+            <h2 class="section-title">📥 Installation</h2>
+            <p class="section-subtitle">So installierst du die Themes und Plugins</p>
+        </div>
+
+        <div class="install-steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h4>BetterDiscord installieren</h4>
+                    <p>Lade <a href="https://betterdiscord.app/" target="_blank">BetterDiscord</a> herunter und installiere es.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h4>Theme herunterladen</h4>
+                    <p>Klicke auf "Download" beim Galaxy Theme oben oder lade es von GitHub.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h4>Theme installieren</h4>
+                    <p>Kopiere die <code>.theme.css</code> Datei in den BetterDiscord Themes-Ordner:<br>
+                    <code>%appdata%/BetterDiscord/themes</code></p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h4>Theme aktivieren</h4>
+                    <p>Öffne Discord → Einstellungen → BetterDiscord → Themes → Galaxy Theme aktivieren</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">5</div>
+                <div class="step-content">
+                    <h4>Galaxy Plugin (Optional)</h4>
+                    <p>Für den animierten Hintergrund: <code>galaxyplugin.plugin.js</code> in den Plugins-Ordner kopieren.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="quick-links">
+            <a href="https://github.com/headxdev/better-discord-plugins-and-themes" target="_blank" class="quick-link">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                </svg>
+                GitHub Repository
+            </a>
+            <a href="https://discord.gg/J6wTJJ5fp" target="_blank" class="quick-link">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                    <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+                </svg>
+                Discord Server
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <span class="logo">🌌</span>
+                <span>HeadX BetterDiscord</span>
+            </div>
+            <p class="footer-text">
+                Made with 💜 by HeadX | 
+                <a href="https://github.com/headxdev/better-discord-plugins-and-themes">GitHub</a> | 
+                <a href="https://discord.gg/J6wTJJ5fp">Discord</a>
+            </p>
+            <p class="footer-copyright">© 2024-2025 HeadX. Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
+
+    <!-- Code Modal -->
+    <div id="code-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Galaxy Theme Code</h3>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <pre><code id="code-content"></code></pre>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" onclick="copyCode()">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                        <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                    </svg>
+                    Code kopieren
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+    <script>
+/* ========================================
+   HeadX BetterDiscord Website Script
+   Galaxy Background & Interactions
+   ======================================== */
+
+// ============================================
+// GALAXY BACKGROUND ANIMATION
+// ============================================
+class GalaxyBackground {
+    constructor() {
+        this.canvas = document.getElementById('galaxy-bg');
+        this.ctx = this.canvas.getContext('2d');
+        this.stars = [];
+        this.shootingStars = [];
+        this.nebulaClouds = [];
+        this.mouse = { x: 0, y: 0 };
+        this.time = 0;
+        
+        this.init();
+        this.animate();
+        this.setupEvents();
+    }
+    
+    init() {
+        this.resize();
+        this.createStars();
+        this.createNebulaClouds();
+    }
+    
+    resize() {
+        this.canvas.width = window.innerWidth;
+        this.canvas.height = window.innerHeight;
+    }
+    
+    createStars() {
+        this.stars = [];
+        const starCount = Math.floor((this.canvas.width * this.canvas.height) / 3000);
+        
+        for (let i = 0; i < starCount; i++) {
+            this.stars.push({
+                x: Math.random() * this.canvas.width,
+                y: Math.random() * this.canvas.height,
+                size: Math.random() * 2 + 0.5,
+                brightness: Math.random(),
+                twinkleSpeed: Math.random() * 0.02 + 0.01,
+                twinkleOffset: Math.random() * Math.PI * 2,
+                color: this.getStarColor()
+            });
+        }
+    }
+    
+    getStarColor() {
+        const colors = [
+            { r: 255, g: 255, b: 255 },  // White
+            { r: 200, g: 220, b: 255 },  // Blue-white
+            { r: 255, g: 200, b: 150 },  // Orange-white
+            { r: 180, g: 140, b: 255 },  // Purple
+            { r: 100, g: 200, b: 255 }   // Cyan
+        ];
+        return colors[Math.floor(Math.random() * colors.length)];
+    }
+    
+    createNebulaClouds() {
+        this.nebulaClouds = [];
+        const cloudCount = 5;
+        
+        for (let i = 0; i < cloudCount; i++) {
+            this.nebulaClouds.push({
+                x: Math.random() * this.canvas.width,
+                y: Math.random() * this.canvas.height,
+                size: Math.random() * 400 + 200,
+                color: this.getNebulaColor(),
+                alpha: Math.random() * 0.1 + 0.05,
+                speed: Math.random() * 0.2 + 0.1
+            });
+        }
+    }
+    
+    getNebulaColor() {
+        const colors = [
+            { r: 139, g: 92, b: 246 },   // Purple
+            { r: 99, g: 102, b: 241 },   // Indigo
+            { r: 34, g: 211, b: 238 },   // Cyan
+            { r: 236, g: 72, b: 153 },   // Pink
+            { r: 59, g: 130, b: 246 }    // Blue
+        ];
+        return colors[Math.floor(Math.random() * colors.length)];
+    }
+    
+    createShootingStar() {
+        if (Math.random() > 0.995) {
+            this.shootingStars.push({
+                x: Math.random() * this.canvas.width,
+                y: 0,
+                length: Math.random() * 100 + 50,
+                speed: Math.random() * 15 + 10,
+                angle: Math.PI / 4 + (Math.random() - 0.5) * 0.5,
+                alpha: 1
+            });
+        }
+    }
+    
+    drawBackground() {
+        const gradient = this.ctx.createRadialGradient(
+            this.canvas.width / 2, this.canvas.height / 2, 0,
+            this.canvas.width / 2, this.canvas.height / 2, this.canvas.width
+        );
+        gradient.addColorStop(0, '#0f1423');
+        gradient.addColorStop(0.5, '#0a0c19');
+        gradient.addColorStop(1, '#050608');
+        
+        this.ctx.fillStyle = gradient;
+        this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+    }
+    
+    drawNebulaClouds() {
+        this.nebulaClouds.forEach(cloud => {
+            const gradient = this.ctx.createRadialGradient(
+                cloud.x, cloud.y, 0,
+                cloud.x, cloud.y, cloud.size
+            );
+            gradient.addColorStop(0, `rgba(${cloud.color.r}, ${cloud.color.g}, ${cloud.color.b}, ${cloud.alpha})`);
+            gradient.addColorStop(1, 'transparent');
+            
+            this.ctx.fillStyle = gradient;
+            this.ctx.fillRect(cloud.x - cloud.size, cloud.y - cloud.size, cloud.size * 2, cloud.size * 2);
+            
+            // Animate cloud
+            cloud.x += Math.sin(this.time * cloud.speed) * 0.5;
+            cloud.y += Math.cos(this.time * cloud.speed * 0.5) * 0.3;
+        });
+    }
+    
+    drawStars() {
+        this.stars.forEach(star => {
+            const twinkle = Math.sin(this.time * star.twinkleSpeed + star.twinkleOffset);
+            const brightness = star.brightness * (0.5 + twinkle * 0.5);
+            const alpha = 0.3 + brightness * 0.7;
+            
+            // Star glow
+            const glow = this.ctx.createRadialGradient(
+                star.x, star.y, 0,
+                star.x, star.y, star.size * 3
+            );
+            glow.addColorStop(0, `rgba(${star.color.r}, ${star.color.g}, ${star.color.b}, ${alpha})`);
+            glow.addColorStop(1, 'transparent');
+            
+            this.ctx.fillStyle = glow;
+            this.ctx.beginPath();
+            this.ctx.arc(star.x, star.y, star.size * 3, 0, Math.PI * 2);
+            this.ctx.fill();
+            
+            // Star core
+            this.ctx.fillStyle = `rgba(${star.color.r}, ${star.color.g}, ${star.color.b}, ${alpha})`;
+            this.ctx.beginPath();
+            this.ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+            this.ctx.fill();
+        });
+    }
+    
+    drawShootingStars() {
+        this.shootingStars = this.shootingStars.filter(star => {
+            star.x += Math.cos(star.angle) * star.speed;
+            star.y += Math.sin(star.angle) * star.speed;
+            star.alpha -= 0.02;
+            
+            if (star.alpha <= 0) return false;
+            
+            const gradient = this.ctx.createLinearGradient(
+                star.x, star.y,
+                star.x - Math.cos(star.angle) * star.length,
+                star.y - Math.sin(star.angle) * star.length
+            );
+            gradient.addColorStop(0, `rgba(255, 255, 255, ${star.alpha})`);
+            gradient.addColorStop(1, 'transparent');
+            
+            this.ctx.strokeStyle = gradient;
+            this.ctx.lineWidth = 2;
+            this.ctx.beginPath();
+            this.ctx.moveTo(star.x, star.y);
+            this.ctx.lineTo(
+                star.x - Math.cos(star.angle) * star.length,
+                star.y - Math.sin(star.angle) * star.length
+            );
+            this.ctx.stroke();
+            
+            return true;
+        });
+    }
+    
+    drawMouseGlow() {
+        const gradient = this.ctx.createRadialGradient(
+            this.mouse.x, this.mouse.y, 0,
+            this.mouse.x, this.mouse.y, 200
+        );
+        gradient.addColorStop(0, 'rgba(139, 92, 246, 0.1)');
+        gradient.addColorStop(1, 'transparent');
+        
+        this.ctx.fillStyle = gradient;
+        this.ctx.fillRect(this.mouse.x - 200, this.mouse.y - 200, 400, 400);
+    }
+    
+    animate() {
+        this.time += 0.01;
+        
+        this.drawBackground();
+        this.drawNebulaClouds();
+        this.drawStars();
+        this.createShootingStar();
+        this.drawShootingStars();
+        this.drawMouseGlow();
+        
+        requestAnimationFrame(() => this.animate());
+    }
+    
+    setupEvents() {
+        window.addEventListener('resize', () => {
+            this.resize();
+            this.createStars();
+        });
+        
+        document.addEventListener('mousemove', (e) => {
+            this.mouse.x = e.clientX;
+            this.mouse.y = e.clientY;
+        });
+    }
+}
+
+// ============================================
+// NAVIGATION
+// ============================================
+function setupNavigation() {
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('section');
+    
+    // Smooth scroll and active state
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute('href');
+            const target = document.querySelector(targetId);
+            
+            if (target) {
+                const offset = 80; // Navbar height
+                const targetPosition = target.offsetTop - offset;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+    
+    // Update active link on scroll
+    window.addEventListener('scroll', () => {
+        let current = '';
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 100;
+            if (window.scrollY >= sectionTop) {
+                current = section.getAttribute('id');
+            }
+        });
+        
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${current}`) {
+                link.classList.add('active');
+            }
+        });
+    });
+}
+
+// ============================================
+// PLUGIN FILTERING
+// ============================================
+function setupPluginFiltering() {
+    const categoryBtns = document.querySelectorAll('.category-btn');
+    const pluginCards = document.querySelectorAll('.plugin-card');
+    
+    categoryBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Update active button
+            categoryBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            
+            const category = btn.dataset.category;
+            
+            // Filter cards
+            pluginCards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'block';
+                    card.style.animation = 'fadeIn 0.3s ease';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+}
+
+// Add fade animation
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+`;
+document.head.appendChild(style);
+
+// ============================================
+// CODE MODAL
+// ============================================
+const themeCode = `/**
+ * @name Galaxy Theme Ultimate
+ * @author HeadX
+ * @authorId 808385710700494919
+ * @version 3.1.0
+ * @description Ultimate Discord theme with Galaxy, Midnight, Moon Rabbits & VSThemes integrated
+ * @source https://github.com/headxdev/better-discord-plugins-and-themes
+ * @invite J6wTJJ5fp
+ */
+
+/* Root Variables */
+:root {
+    --galaxy-bg: #0a0c19;
+    --galaxy-accent: #8b5cf6;
+    --galaxy-secondary: #6366f1;
+    --galaxy-text: #e4e6eb;
+    --transparency: 0.30;
+    --blur-amount: 10px;
+}
+
+/* Transparent Background */
+.theme-dark {
+    --background-primary: rgba(10, 12, 25, var(--transparency));
+    --background-secondary: rgba(15, 18, 35, var(--transparency));
+    --background-tertiary: rgba(20, 25, 45, var(--transparency));
+}
+
+/* Glassmorphism Effects */
+.container-ZMc96U,
+.sidebar-1tnWFu,
+.chat-2ZfjoI,
+.membersWrap-3NUR2t {
+    background: rgba(10, 12, 25, var(--transparency)) !important;
+    backdrop-filter: blur(var(--blur-amount)) !important;
+}
+
+/* Galaxy Accent Colors */
+.button-f2h6uQ.lookFilled-yCfaCM.colorBrand-I6CyqQ,
+.tabBar-ra-EuL .tab-1ujlUx.selected-2ZUQLO {
+    background: linear-gradient(135deg, var(--galaxy-accent), var(--galaxy-secondary)) !important;
+}
+
+/* Download full theme from GitHub */`;
+
+function showCode(themeId) {
+    const modal = document.getElementById('code-modal');
+    const codeContent = document.getElementById('code-content');
+    
+    codeContent.textContent = themeCode;
+    modal.classList.add('active');
+}
+
+function closeModal() {
+    const modal = document.getElementById('code-modal');
+    modal.classList.remove('active');
+}
+
+function copyCode() {
+    navigator.clipboard.writeText(themeCode).then(() => {
+        const btn = document.querySelector('.modal-footer .btn-primary');
+        const originalText = btn.innerHTML;
+        btn.innerHTML = '✓ Kopiert!';
+        btn.style.background = '#22c55e';
+        
+        setTimeout(() => {
+            btn.innerHTML = originalText;
+            btn.style.background = '';
+        }, 2000);
+    });
+}
+
+// Close modal on outside click
+document.addEventListener('click', (e) => {
+    const modal = document.getElementById('code-modal');
+    if (e.target === modal) {
+        closeModal();
+    }
+});
+
+// Close modal on Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closeModal();
+    }
+});
+
+// ============================================
+// SCROLL ANIMATIONS
+// ============================================
+function setupScrollAnimations() {
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+    
+    // Animate cards on scroll
+    const animatedElements = document.querySelectorAll('.plugin-card, .mini-theme-card, .step');
+    animatedElements.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        observer.observe(el);
+    });
+}
+
+// ============================================
+// STATS COUNTER ANIMATION
+// ============================================
+function animateStats() {
+    const stats = document.querySelectorAll('.stat-number');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const target = entry.target;
+                const finalValue = target.textContent;
+                const isNumber = !isNaN(parseInt(finalValue));
+                
+                if (isNumber) {
+                    const endValue = parseInt(finalValue);
+                    let current = 0;
+                    const increment = endValue / 30;
+                    const hasPlus = finalValue.includes('+');
+                    
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= endValue) {
+                            target.textContent = hasPlus ? `${endValue}+` : endValue;
+                            clearInterval(timer);
+                        } else {
+                            target.textContent = Math.floor(current);
+                        }
+                    }, 50);
+                }
+                
+                observer.unobserve(target);
+            }
+        });
+    });
+    
+    stats.forEach(stat => observer.observe(stat));
+}
+
+// ============================================
+// TYPING EFFECT FOR HERO
+// ============================================
+function setupTypingEffect() {
+    const heroTitle = document.querySelector('.gradient-text');
+    if (!heroTitle) return;
+    
+    const text = heroTitle.textContent;
+    heroTitle.textContent = '';
+    
+    let i = 0;
+    const typeWriter = () => {
+        if (i < text.length) {
+            heroTitle.textContent += text.charAt(i);
+            i++;
+            setTimeout(typeWriter, 100);
+        }
+    };
+    
+    // Start typing after a short delay
+    setTimeout(typeWriter, 500);
+}
+
+// ============================================
+// PARTICLE EFFECT ON HOVER
+// ============================================
+function setupParticleEffect() {
+    const buttons = document.querySelectorAll('.btn-primary');
+    
+    buttons.forEach(btn => {
+        btn.addEventListener('mouseenter', (e) => {
+            createParticles(e.target);
+        });
+    });
+}
+
+function createParticles(element) {
+    const rect = element.getBoundingClientRect();
+    
+    for (let i = 0; i < 10; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.cssText = `
+            position: fixed;
+            width: 6px;
+            height: 6px;
+            background: ${['#8b5cf6', '#6366f1', '#22d3ee', '#ec4899'][Math.floor(Math.random() * 4)]};
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            left: ${rect.left + rect.width / 2}px;
+            top: ${rect.top + rect.height / 2}px;
+        `;
+        document.body.appendChild(particle);
+        
+        const angle = (Math.random() * 360) * (Math.PI / 180);
+        const velocity = Math.random() * 50 + 30;
+        const vx = Math.cos(angle) * velocity;
+        const vy = Math.sin(angle) * velocity;
+        
+        let x = 0;
+        let y = 0;
+        let opacity = 1;
+        
+        const animate = () => {
+            x += vx * 0.1;
+            y += vy * 0.1;
+            opacity -= 0.02;
+            
+            particle.style.transform = `translate(${x}px, ${y}px)`;
+            particle.style.opacity = opacity;
+            
+            if (opacity > 0) {
+                requestAnimationFrame(animate);
+            } else {
+                particle.remove();
+            }
+        };
+        
+        requestAnimationFrame(animate);
+    }
+}
+
+// ============================================
+// DISCORD MOCK ANIMATION
+// ============================================
+function setupDiscordMock() {
+    const mock = document.querySelector('.discord-mock');
+    if (!mock) return;
+    
+    // Add animated messages to mock chat
+    const mockChat = mock.querySelector('.mock-chat');
+    if (mockChat) {
+        setInterval(() => {
+            const messageDiv = document.createElement('div');
+            messageDiv.style.cssText = `
+                height: 8px;
+                background: rgba(139, 92, 246, ${Math.random() * 0.3 + 0.1});
+                border-radius: 4px;
+                margin: 8px;
+                width: ${Math.random() * 60 + 30}%;
+                animation: fadeIn 0.3s ease;
+            `;
+            mockChat.appendChild(messageDiv);
+            
+            // Remove old messages
+            if (mockChat.children.length > 15) {
+                mockChat.removeChild(mockChat.firstChild);
+            }
+        }, 2000);
+    }
+}
+
+// ============================================
+// INITIALIZE EVERYTHING
+// ============================================
+document.addEventListener('DOMContentLoaded', () => {
+    // Initialize Galaxy Background
+    new GalaxyBackground();
+    
+    // Setup interactions
+    setupNavigation();
+    setupPluginFiltering();
+    setupScrollAnimations();
+    animateStats();
+    setupTypingEffect();
+    setupParticleEffect();
+    setupDiscordMock();
+    
+    console.log('🌌 HeadX BetterDiscord Website loaded!');
+    console.log('✨ Galaxy Background active');
+    console.log('🎨 All interactions ready');
+});
+
+// ============================================
+// THEME DETAILS MODAL
+// ============================================
+const themeDetails = {
+    midnight: {
+        name: '🌙 Midnight Theme',
+        description: 'Ein elegantes dunkles Theme mit custom Chatbar, Window Controls und smooth Scroll-Animationen.',
+        features: ['Custom Chatbar Design', 'Window Controls Styling', 'Smooth Scrolling', 'Dark Gradients', 'Animation Effects'],
+        colors: ['#1e1e2e', '#313244', '#cdd6f4', '#89b4fa']
+    },
+    moonrabbit: {
+        name: '🐇 Moon Rabbits Dream',
+        description: 'Ein traumhaftes, kawaii-inspiriertes Theme mit sanften Pastellfarben und Pop-Effekten.',
+        features: ['Window Mode', 'Pop Effects', 'Animated Background', 'Kawaii Aesthetic', 'Pastel Colors'],
+        colors: ['#e297b2', '#c0b4d5', '#54b5de', '#f5c2e7']
+    },
+    vsthemes: {
+        name: '👻 VSThemes / True Ghoul',
+        description: 'Ein mysteriöses Theme mit extremer Transparenz und dynamischen Hintergrund-Effekten.',
+        features: ['Extreme Transparency', 'Dynamic Backgrounds', 'Dark Aesthetic', 'Ghost Effects', 'Blur System'],
+        colors: ['#0a0a0a', '#1a0a0a', '#8b5cf6', '#ff6b6b']
+    },
+    glass: {
+        name: '✨ Glasmorphismus',
+        description: 'Modernes Glasmorphismus-Design mit Blur-Effekten und transparenten Panels.',
+        features: ['Blur Effects', 'Transparent Panels', 'Frosted Glass Look', 'Light Borders', 'Depth Effects'],
+        colors: ['rgba(255,255,255,0.1)', 'rgba(255,255,255,0.05)', '#8b5cf6', '#22d3ee']
+    }
+};
+
+function showThemeDetails(themeId) {
+    const theme = themeDetails[themeId];
+    if (!theme) return;
+    
+    const modal = document.getElementById('code-modal');
+    const codeContent = document.getElementById('code-content');
+    const modalTitle = document.querySelector('.modal-header h3');
+    
+    modalTitle.textContent = theme.name;
+    
+    let content = `/* ${theme.name} */\n\n`;
+    content += `/* ${theme.description} */\n\n`;
+    content += `/* Features:\n`;
+    theme.features.forEach(f => content += ` * - ${f}\n`);
+    content += ` */\n\n`;
+    content += `/* Color Palette:\n`;
+    theme.colors.forEach((c, i) => content += ` * Color ${i + 1}: ${c}\n`);
+    content += ` */\n\n`;
+    content += `/* This theme is integrated into Galaxy Theme Ultimate.\n`;
+    content += ` * Download the full theme from GitHub:\n`;
+    content += ` * https://github.com/headxdev/better-discord-plugins-and-themes\n`;
+    content += ` */`;
+    
+    codeContent.textContent = content;
+    modal.classList.add('active');
+}
+
+// ============================================
+// COPY CSS VARIABLES
+// ============================================
+function copyCSSVars() {
+    const cssVars = `:root {
+    /* 🌌 Galaxy Colors */
+    --galaxy-bg: #0a0c19;
+    --galaxy-accent: #8b5cf6;
+    --galaxy-secondary: #6366f1;
+    --galaxy-cyan: #22d3ee;
+    --galaxy-pink: #ec4899;
+    
+    /* 🔮 Transparency (0.0 - 1.0) */
+    --transparency: 0.30;
+    --blur-amount: 10px;
+    
+    /* ✨ Glassmorphism */
+    --glass-bg: rgba(10, 12, 25, var(--transparency));
+    --glass-border: rgba(255, 255, 255, 0.1);
+}`;
+    
+    navigator.clipboard.writeText(cssVars).then(() => {
+        const btn = document.querySelector('.copy-btn');
+        const originalText = btn.textContent;
+        btn.textContent = '✅ Kopiert!';
+        btn.style.background = '#22c55e';
+        btn.style.color = 'white';
+        
+        setTimeout(() => {
+            btn.textContent = originalText;
+            btn.style.background = '';
+            btn.style.color = '';
+        }, 2000);
+    });
+}
+
+// Make functions globally available
+window.showCode = showCode;
+window.closeModal = closeModal;
+window.copyCode = copyCode;
+window.showThemeDetails = showThemeDetails;
+window.copyCSSVars = copyCSSVars;
+
+    </script>
+</body>
+</html>
