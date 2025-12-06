@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Better Discord Plugins & Themes Sammelseite</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Style.css dynamisch laden -->
+  <link rel="stylesheet" id="remote-style">
+  <script>
+    // CSS Datei von raw.githubusercontent laden und einbinden
+    fetch('https://raw.githubusercontent.com/headxdev/better-discord-plugins-and-themes/refs/heads/main/website/style.css')
+      .then(response => response.text())
+      .then(css => {
+        const style = document.createElement('style');
+        style.textContent = css;
+        document.head.appendChild(style);
+      });
+    // HTML Content laden und einfügen
+    fetch('https://raw.githubusercontent.com/headxdev/better-discord-plugins-and-themes/refs/heads/main/website/index.html')
+      .then(response => response.text())
+      .then(html => {
+        document.getElementById('remote-content').innerHTML = html;
+      });
+  </script>
+</head>
+<body>
+  <h1>Better Discord Plugins & Themes</h1>
+  <noscript>
+    <div style="color: red;">Du musst JavaScript aktivieren um diese Seite zu sehen!</div>
+  </noscript>
+  <!-- Hier wird der HTML Content eingefügt -->
+  <section id="remote-content" style="margin-top:2em">
+    <p>Lade Inhalt...</p>
+  </section>
+  <footer>
+    <hr>
+    <ul>
+      <li><a href="https://raw.githubusercontent.com/headxdev/better-discord-plugins-and-themes/refs/heads/main/website/style.css">Raw CSS</a></li>
+      <li><a href="https://raw.githubusercontent.com/headxdev/better-discord-plugins-and-themes/refs/heads/main/website/index.html">Raw HTML</a></li>
+      <li><a href="https://github.dev/headxdev/better-discord-plugins-and-themes/blob/main/website/index.html">GitHub Editor</a></li>
+      <li><a href="https://headxdev.github.io/better-discord-plugins-and-themes/website/">Live Demo ⬈</a></li>
+    </ul>
+    <small>Diese Seite lädt ihren Inhalt live von <code>main/website/index.html</code> und <code>main/website/style.css</code></small>
+  </footer>
+</body>
+</html>
